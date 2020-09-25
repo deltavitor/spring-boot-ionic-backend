@@ -16,16 +16,16 @@ import org.thymeleaf.context.Context;
 import com.vitor.cursomc.domain.Pedido;
 
 public abstract class AbstractEmailService implements EmailService {
-
+	
 	@Value("${default.sender}")
 	private String sender;
 	
 	@Autowired
 	private TemplateEngine templateEngine;
 	
-	@Autowired
+	@Autowired(required = false)
 	private JavaMailSender javaMailSender;
-
+	
 	@Override
 	public void sendOrderConfirmationEmail(Pedido obj) {
 		SimpleMailMessage sm = prepareSimpleMailMessageFromPedido(obj);
