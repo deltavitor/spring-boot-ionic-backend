@@ -15,7 +15,7 @@ public class CidadeService {
 	private CidadeRepository repo;
 	
 	public List<Cidade> findCidades(Integer estadoId) {
-		return repo.findAllByEstadoId(estadoId);
+		return repo.findAllByEstadoIdOrderByNome(estadoId);
 	}
 	
 }

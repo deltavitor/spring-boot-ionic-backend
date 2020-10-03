@@ -28,14 +28,14 @@ public class EstadoResource {
 	private CidadeService cidadeService;
 	
 	@RequestMapping(method = RequestMethod.GET)
-	public ResponseEntity<List<EstadoDTO>> findPageEstado() {
+	public ResponseEntity<List<EstadoDTO>> findEstados() {
 		List<Estado> list = service.findAll();
 		List<EstadoDTO> listDto = list.stream().map(obj -> new EstadoDTO(obj)).collect(Collectors.toList());
 		return ResponseEntity.ok().body(listDto);
 	}
 	
 	@RequestMapping(value = "/{id}/cidades", method = RequestMethod.GET)
-	public ResponseEntity<List<CidadeDTO>> findPageCidade(@PathVariable Integer id) {
+	public ResponseEntity<List<CidadeDTO>> findCidades(@PathVariable Integer id) {
 		List<Cidade> list = cidadeService.findCidades(id);
 		List<CidadeDTO> listDto = list.stream().map(obj -> new CidadeDTO(obj)).collect(Collectors.toList());
 		return ResponseEntity.ok().body(listDto);

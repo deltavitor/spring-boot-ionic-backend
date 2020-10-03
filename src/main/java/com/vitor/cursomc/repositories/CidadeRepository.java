@@ -12,5 +12,5 @@ import com.vitor.cursomc.domain.Cidade;
 public interface CidadeRepository extends JpaRepository<Cidade, Integer>{
 	
 	@Transactional(readOnly = true)
-	List<Cidade> findAllByEstadoId(Integer estadoId);
+	List<Cidade> findAllByEstadoIdOrderByNome(Integer estadoId);
 }
